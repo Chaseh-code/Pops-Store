@@ -66,6 +66,20 @@ class Firebase {
         }
     });
 
+    /*** Inventory pulling ***/
+
+    /*loadInventory = () => {//manually putting the item's uniqueid in at the moment. Will need a way to generate one later for when adding items to the database.
+    let inventory = this.db.ref('/inventory/uniqueid/') // This part is telling firebase where to look inside my realtime database. Access like a file path, recieve the data as json
+        .once('value') // This lets firebase know that I only want to grab this data once with my listener that it creates
+        .then((snapshot) => {
+            console.log(inventory);
+            //return snapshot.val();
+        });
+    console.log(inventory);
+    }*/
+
+    loadinventory = () => this.db.ref('inventory/uniqueid/description');
+
     /*** User API ***/
 
     user = uid => this.db.ref(`users/${uid}`);
