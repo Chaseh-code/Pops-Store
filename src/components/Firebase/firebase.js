@@ -78,7 +78,7 @@ class Firebase {
     console.log(inventory);
     }*/
 
-    loadinventory = () => this.db.ref('inventory/uniqueid/description');
+    loadinventory = () => this.db.ref('inventory');
 
     /*** User API ***/
 

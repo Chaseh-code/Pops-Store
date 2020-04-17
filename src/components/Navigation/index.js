@@ -11,6 +11,7 @@ const Navigation = () => (
     <div><AuthUserContext.Consumer>{authUser => authUser ? <NavigationAuth authUser={authUser} /> : <NavigationNonAuth />}</AuthUserContext.Consumer></div>  
 );
 
+
 const NavigationAuth = ({authUser}) => (
     <ul>
         <li>
