@@ -1,9 +1,12 @@
+html {
+  font-size: 14px;
+}
+
 body {
   margin: 0;
-  background-color: white;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background-color: black;
+  color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif,cursive,'Times New Roman', Times, serif,'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -13,15 +16,60 @@ code {
     monospace;
 }
 
+a {
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+}
+
+span {
+  white-space: normal;
+}
+
 .landing {
   float: left;
   margin-left: 25px;
   margin-right: 25px;
-  background-color: cornflowerblue;
+  /*background-color: cornflowerblue;*/
   /*max-width: 1900px;*/
   width: 98%;
   min-height: 200px;
   max-height: 3000px;
-  
   height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-poster {
+  width: auto;
+  height: 400px;
+}
+
+.home {
+  background-color: black;
+}
+
+.inventory-line {
+  padding-inline-start: 30px;
+  padding-bottom: 60px;
+  float: left;
+}
+
+.landing-footer {
+
+}
+
+.navi-bar {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+}
+
+.social-media {
+  padding-left: 50px;
+  padding-top: 25px;
+  width: 50px;
+  height: 50px;
 }

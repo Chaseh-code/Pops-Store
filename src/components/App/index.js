@@ -15,10 +15,24 @@ import { withAuthentication } from '../Session';
 
 import * as ROUTES from '../../constants/routes';
 
+const mediaStyle = {
+    width: "100%",
+    height: "100%",
+};
+
 const App = () => (
     <Router>
         <div>
-            <Navigation />
+            <div className="navi-bar">
+                <div >
+                    <Navigation />
+                </div>
+                <div className="social-media">
+                    <a role="button" href="https://www.facebook.com/creaturefeaturefanatic/" target="_blank">
+                        <img style={mediaStyle} src={require('../../images/facebook-icon.jpg')} alt="Social Media link"/>
+                    </a>
+                </div>
+            </div>
             <hr />
             <Route exact path={ROUTES.LANDING} component={LandingPage} />
             <Route path={ROUTES.SIGN_UP} component={SignUpPage} />

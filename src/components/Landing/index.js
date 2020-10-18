@@ -12,7 +12,15 @@ import { compose } from 'recompose';
         
     </div>
 );*/  
+const imgStyle = { //trying to resize the images for the inventory
+    width: '300px',
+    height: '300px',
+};
 
+const bannerStyle = {
+    width: '100%',
+    height: '100%',
+};
 class Inventory extends Component {
     constructor(props) {
         super(props);
@@ -36,6 +44,7 @@ class Inventory extends Component {
             });
             console.log("testing inv state");
             console.log(this.state.inventory);
+            console.log(this.state.inventory[0].uid);
         });
     }
 
@@ -47,43 +56,58 @@ class Inventory extends Component {
         const { inventory } = this.state;
         return(
             <div className="landing">
-                <div >
-                    <h4><a href="https://www.facebook.com/">Contact me on facebook</a></h4>
+                <div className="landing-poster">
+                    <img style={bannerStyle} src={require('./creature-main.jpg')}alt="Creature From The Black Lagoon"/>
                 </div>
                 <h1><strong>Inventory Part</strong></h1>
                 <InventoryList inventory={inventory} />
+                <div className="landing-footer">
+                    <h2>We sell originals and replicas. Contact me if you are interested in anything specific!</h2>
+                    <div>
+                        <h3>Terms & Conditions may apply.</h3>
+                        <h3>Stupidity voids all warranties</h3>
+                    </div>
+                </div>
             </div>
         );        
     }
 }
-
+/* Rename all the pictures used for the photos to the uid in firebase realtime database */
 const InventoryList = ({inventory}) => (
-    <ul>
-        {inventory.map(item => (
-            <li key={item.uid}>
-                <span>
-                    <strong>Unique Id: </strong> {item.uid}
-                </span>
-                <span>
-                    <strong> Description: </strong> {item.description}
-                </span>
-                <span>
-                    <strong> Item Name: </strong> {item.item}
-                </span>
-                <span>
-                    <strong> Item dimensions: </strong> {item.dimensions}
-                </span>
-                <span>
-                    <strong> Price: </strong> {item.price}
-                </span>
-                <span>
-                    <strong> Quantity: </strong> {item.quantity}
-                </span>
-            </li>
-        ))}
-    </ul>
+    <div>
+        <ul>
+            {inventory.map(item => (
+                <li className="inventory-line" key={item.uid}>
+                    <img style={imgStyle} src={require(`../../images/${item.uid}.jpg`)} alt="food" />
+                    <li>
+                        <span>
+                            <strong></strong> {item.uid}
+                        </span>
+                        <span>
+                            <strong></strong> {item.description}
+                        </span>
+                        <span>
+                            <strong></strong> {item.item}
+                        </span>
+                        <span>
+                            <strong></strong> {item.dimensions}
+                        </span>
+                        <span>
+                            <strong></strong> {item.price}
+                        </span>
+                        <span>
+                            <strong> Qty </strong> {item.quantity}
+                        </span>
+                    </li>
+                </li>
+            ))}
+        </ul>
+    </div>
 );
 
+const item = ({inventory}) => {
+
+};
 /*const test = compose(
     withFirebase,)(Inventory);
 export default Landing;
